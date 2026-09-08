@@ -1,4 +1,4 @@
-import jwt, { JwtPayload, SignOptions } from "jsonwebtoken";
+import jwt, { type JwtPayload, type SignOptions } from "jsonwebtoken";
 
 const createToken = (
 	payload: JwtPayload,
@@ -19,6 +19,7 @@ const verifyToken = (token: string, secret: string) => {
 			success: true,
 			data: verifiedToken,
 		};
+	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	} catch (error: any) {
 		console.log("Token verification failed:", error);
 		return {
